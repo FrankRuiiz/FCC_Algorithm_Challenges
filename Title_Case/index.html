@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title Case</title>
+    <script>
+
+        function titleCase(str) {
+            str = str.toLowerCase().split(' '); // Turns string into lower case, and then splits at each space creating an array of words
+
+            for( var i=0; i<str.length; i+=1 ) {
+                str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); // Gets the first letter of the string, makes it uppercase, and adds the remainder of the word
+            }
+            return str.join(' ');  // creates a string by joining the array and using a space to separate the words
+        }
+
+        var result = titleCase("I'm a little tea pot");
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Longest Word</title>
+    <script>
+
+        function findLongestWord(str) {
+            var strArr = str.split(' ');  // convert str into an array by splitting it at the spaces
+            var longestStr = strArr[0]; // set the longest word to the first word in the array
+
+            for ( var i=1; i<strArr.length; i++ ) { // since the first element is currently set to the longest, the for loop will begin at position 1
+                if ( strArr[i].length > longestStr.length ) {  // check if the current word in the array is longer than the longestStr
+                    longestStr = strArr[i];  // if it is, set longestStr to the current word
+                }
+            }
+            return longestStr.length;  // return the length of the longest string
+        }
+
+        var result = findLongestWord("The quick brown fox jumped over the lazy dog");
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
