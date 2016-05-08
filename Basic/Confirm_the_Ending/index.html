@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm the Ending</title>
+    <script>
+
+        function confirmEnding(str, target) {
+            // using substring we can get the target from str, could have also just done -target
+            var testStr = str.substr(str.length-target.length, target.length);
+            // returns true or false
+            return testStr === target;
+        }
+
+        var result = confirmEnding("Bastian", "n");
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
