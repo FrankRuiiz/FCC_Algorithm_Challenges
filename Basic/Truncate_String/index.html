@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Truncate A String</title>
+    <script>
+
+        function truncateString(str, num) {
+
+            var dots = '...';  // Three dots to be truncated to string input
+
+            if( num <= 3 ) {  // If the max length or num is less than or equals 3; just add the dots to the string
+                str = str.slice(0, num) + dots;
+            }
+            else if( str.length > num ) { // if the length of the string is greater than num
+                str = str.slice(0, num-dots.length) + dots;  // String is now the characters up to num minus the length of dots, in this case 3
+            }
+            return str;
+        }
+
+
+        var result = truncateString("A-tisket a-tasket A green and yellow basket", 11);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
