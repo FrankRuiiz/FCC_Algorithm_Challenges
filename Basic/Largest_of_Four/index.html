@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Largest Of Four</title>
+
+    <script>
+
+        function largestOfFour(arr) {
+            var output = [];
+            // outer loop
+            for ( var i=0; i<arr.length; i++ ) {
+                var largestNum = 0; // variable to keep track of the largest number
+                // inner loop
+                for ( var j=0; j<arr[i].length; j+=1 ) {
+                    // if the current largestNum is less than the current number in sub arr, update the largestNum
+                    if( largestNum < arr[i][j] ) {
+                        largestNum = arr[i][j];
+                    }
+                }
+                // sets output at index i to the largestNum
+                output[i] = largestNum;
+            }
+            return output;
+        }
+
+        var result = largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
