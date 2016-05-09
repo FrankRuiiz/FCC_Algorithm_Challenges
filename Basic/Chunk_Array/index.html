@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chunk Array in Groups</title>
+    <script>
+
+        function chunkArrayInGroups(arr, size) {
+            var output = [];
+
+            for( var i=0; i<arr.length; i+=size ) {  // loop through the input arr
+                var chunkArr = arr.slice(i, i+size);  // the grouped array, slice begins at i and ends at i+size
+                output.push(chunkArr);  // push the sub array to output
+            }
+            return output;
+        }
+
+        var result = chunkArrayInGroups(["a", "b", "c", "d"], 2);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
