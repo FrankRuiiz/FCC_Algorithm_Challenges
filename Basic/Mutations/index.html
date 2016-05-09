@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutations</title>
+
+    <script>
+
+        function mutation(arr) {
+            // Store the two words in their own variables in lowercase
+            var word1 = arr[0].toLowerCase();
+            var word2 = arr[1].toLowerCase();
+
+            // iterate through the second word
+            for ( var i=0; i<word2.length; i+=1 ) {
+                // if the current letter in word 2 is not found in word1 return false
+                if( word1.indexOf(word2[i]) === -1 ) {
+                    return false;
+                }
+            }
+            // if false was never returned, all the letters were in word1, return true
+            return true;
+        }
+
+        var result =  mutation(["hello", "hey"]);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
