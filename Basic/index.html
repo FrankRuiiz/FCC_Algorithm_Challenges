@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouncer</title>
+    <script>
+
+        function bouncer(arr) {
+
+            function isTruthy(arg) {  // callback function to used in the filter
+                return Boolean(arg);  // returns truthy elements
+            }
+
+            var filteredArr = arr.filter(isTruthy);
+            return filteredArr;
+        }
+
+        var result = bouncer([7, "ate", "", false, 9]);
+        console.log(result);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
