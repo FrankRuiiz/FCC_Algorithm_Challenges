@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seek And Destroy</title>
+    <script>
+
+        function destroyer(arr) {
+            var argsToTest =  Array.from(arguments).splice(1); // create an array out of the passed in arguments minus the first one;
+
+            return arguments[0].filter(function(value) {    // runs an anonymous function on each value passed through filter
+                return argsToTest.indexOf(value) === -1;      // returns elements not in argsToTest
+            });
+        }
+
+        var result = destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
