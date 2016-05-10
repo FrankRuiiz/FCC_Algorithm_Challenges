@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Where Do I belong</title>
+    <script>
+
+        function getIndexToIns(arr, num) {
+            // we first sort the arr to make finding the correct index easier
+            var sortedArr = arr.sort(function(a, b) {
+                return a-b;
+            });
+
+            // next we loop through the sorted array
+            for( var val in sortedArr ) {
+                // if the current value is greater than or equals to the num parameter, then we found its place
+                if( sortedArr[val] >= num ) {
+                    return sortedArr.indexOf(sortedArr[val]); // return the index of the current sortedArr[val]
+                    //return parseInt(val);  Could also do this
+                }
+            }
+            return sortedArr.length; // if num is larger than all of the values in the array, then it would go at the end of the array, which we can get with array.length
+        }
+
+        var result = getIndexToIns([10, 20, 30, 40, 50], 30);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
