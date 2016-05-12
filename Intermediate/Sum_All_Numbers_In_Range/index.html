@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum All Numbers In A Range</title>
+
+    <script>
+
+        function sumAll(arr) {
+
+            // variables to hold the smallest number, largest number and an empty array
+            var minNum = Math.min(arr[0], arr[1]),
+                maxNum = Math.max(arr[0], arr[1]),
+                newArray = [];
+
+            // build out newArray values, which will be everything in between including minNum and maxNum
+            for ( var i=minNum; i <= maxNum; i+=1 ) {
+                newArray.push(i);
+            }
+
+            // declare variable sum, which will be our return value
+            var sum = newArray.reduce(function(a, b) {  // reduce will go through the newArray and add each item represented by a and b
+               return a + b;
+            });
+
+            return sum;
+        }
+
+        var result = sumAll([5, 10]);
+        console.log(result); // returns 45
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
