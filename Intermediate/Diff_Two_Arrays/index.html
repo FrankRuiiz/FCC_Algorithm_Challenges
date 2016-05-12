@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diff Two Arrays</title>
+    <script>
+
+        function diffArray(arr1, arr2) {
+            // build out newArr by using concat and adding the elements from the input arrays
+            var newArr = arr1.concat(arr2);
+
+            // I decided to use return the result of the filter method on newArr
+            return newArr.filter(function(item) {
+               // if item is not found in one of the arrays, return it
+               if ( arr1.indexOf(item) === -1 || arr2.indexOf(item) === -1 ) {
+                    return item;
+               }
+            });
+        }
+
+        var result = diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+        console.log(result); // return [4]
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
