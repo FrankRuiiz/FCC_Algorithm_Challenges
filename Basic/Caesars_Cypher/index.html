@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caesers Cipher</title>
+
+    <script>
+
+        function rot13(str) {
+            var output = [];  // converted letters will get pushed to the output array
+            str = str.split('');  // str is converted into an array of letters
+
+            for( var i=0; i<str.length; i+=1 ) {  // loop through str array
+                // cache the strings character code in strCode
+                var strCode = str[i].charCodeAt(0);  // since there is only one letter in str[i], we can use 0 to get the character code (one letter is the zero index)
+                // since we are only dealing with capital letters, we first check to see if anything is beyond bounds of 65 to 90
+                if( strCode < 65 || strCode > 90 ) {
+                    // if it is, we just push that item to the output array unchanged
+                    output.push(String.fromCharCode(strCode));
+                }
+                // else if it is less than 78, add 13 to the strCode
+                else if ( strCode < 78 ) {
+                    strCode += 13;
+                    output.push(String.fromCharCode(strCode));
+                }
+                // else if it is greater than 77, subtract 13 from the strCode
+                else if ( strCode > 77 ) {
+                    strCode -= 13;
+                    output.push(String.fromCharCode(strCode));
+                }
+            }
+            return output.join('');  // join the output array and return it
+        }
+
+        var result = rot13("SERR PBQR PNZC");
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
