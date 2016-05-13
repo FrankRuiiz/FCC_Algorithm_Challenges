@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roman Numeral Converter</title>
+    <script>
+
+        function convertToRoman(num) {
+            // we will iterate through decimal numbers array starting at 1000, hence reverse
+            var decimalNums = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 600, 900, 1000].reverse();
+            // while in the loop we need to reference the corresponding roman numeral so this also needs to be in reverse order
+            var romanNums = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'DC', 'CM', 'M'].reverse();
+            // this variable will be used to store/add our roman numerals
+            var romanized = '';
+
+            // loop though decimalNums
+            for ( var i=0; i< decimalNums.length; i+=1 ) {
+                // while num is greater than or equals to the current decimal number ...
+                while( num >= decimalNums[i] ) {
+                    // subtract the current decimal number value from num
+                    num -= decimalNums[i];
+                    // add the corresponding roman numeral value to romanized
+                    romanized += romanNums[i];
+                }
+            }
+            // return our converted number
+            return romanized;
+        }
+
+        var result = convertToRoman(3999);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
