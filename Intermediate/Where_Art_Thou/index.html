@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Where Art Thou</title>
+    <script>
+
+        function whereAreYou(collection, source) {
+            var arr = [];
+            var sourceSize = 0;
+
+            for (var key in source ) {
+                if ( source.hasOwnProperty(key)) {
+                    sourceSize++;  //will give us a number to compare below
+                }
+            }
+
+            // iterate through the first parameter, collection
+            for ( var i=0; i<collection.length; i+=1 ) {
+                var count = 0; // will be compared with sourceSize to see if all props are in the current object
+
+                // goes through the properties in each collection object
+                for( var prop in collection[i]) {
+                    //make sure to iterate through own properties, and not prototype props
+                    if (collection[i].hasOwnProperty(prop)) {
+                        // compare collection props with sours props(value)
+                        if( collection[i][prop] === source[prop]) {
+                            count++;
+                            // check every time to see when/or if the current count is equal to sourceSize
+                            if(count === sourceSize) {
+                                // if it is we push the object to our output arr
+                                arr.push(collection[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            return arr;
+        }
+
+        var result = whereAreYou([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
+
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
