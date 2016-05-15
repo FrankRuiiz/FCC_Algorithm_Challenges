@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search And Replace</title>
+    <script>
+
+        function myReplace(str, before, after) {
+
+            // check to see if the first letter in before param is capital letter
+            if( before.charCodeAt(0) >= 65 && before.charCodeAt(0) <= 90 ) {
+                // var to hold the capital letter
+                var cap = after[0].toUpperCase();
+                // split the after param into an array and use splice to remove the first letter
+                after = after.split('').splice(1);
+                // add cap to the beginning of the after array using unshift
+                after.unshift(cap);
+                // bring the after word back together using join
+                after = after.join('');
+            }
+            // use the replace method to swap before with after
+            return str.replace(before,after);
+        }
+
+        var result = myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+        console.log(result);
+
+
+        // Another solution using a ternary statement
+
+        function replace(str, before, after) {
+            after = ((before[0] === before[0].toUpperCase()) ? after[0].toUpperCase() : after[0].toLowerCase()) + after.substring(1);
+            return str.replace(before, after);
+        }
+
+        var result2 = myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+        console.log(result2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
