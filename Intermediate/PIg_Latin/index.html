@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pig Lain</title>
+    <script>
+
+        // utility function to check if a character is a vowel
+        function isVowel(char) {
+            return /[aeiouAEIOU]/.test(char);
+        }
+
+        function translatePigLatin(str) {
+            // if the first letter is a vowel
+            if(isVowel(str.charAt(0))) {
+                // just add way to the end of the word
+                return str + 'way';
+            }
+            // otherwise
+            else {
+                // turn string into an array
+                str = str.split('');
+                // I used a while loop to count the number of consonants up until the first vowel
+                // consonantNum is used in the substr method to build out our pig latin word
+                var consonantNum = 0;
+
+                while ( !isVowel(str[consonantNum])) {
+                    consonantNum++;
+                }
+
+                // turn str back into a string
+                str = str.join('');
+                // return the converted word
+                return str.substr(consonantNum) + str.substr(0, consonantNum) + 'ay';
+            }
+        }
+
+        var result = translatePigLatin("glove");  // returns "oveglay"
+        console.log(result);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
