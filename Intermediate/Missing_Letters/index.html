@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Missing Letters</title>
+    <script>
+
+        function fearNotLetter(str) {
+            // loop through the str param
+            for(var i=0; i<str.length; i+=1) {
+                // check if there is a gap in between character codes, for this problem they are all 1 apart
+                if(((str.charCodeAt(i+1)) - str.charCodeAt(i) > 1)) {
+                    // return the missing letter
+                    return String.fromCharCode(str.charCodeAt(i) + 1);
+                }
+            }
+            // if there are no gaps, return undefined per the instructions
+            return undefined;
+        }
+
+        var result = fearNotLetter("abce");
+        console.log(result); // returns 'd'
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
