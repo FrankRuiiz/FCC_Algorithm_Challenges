@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DNA Pairing</title>
+    <script>
+
+        function pairElement(str) {
+            // will hold our final result
+            var output = [];
+            // make str an array so that we may iterate through it
+            str = str.split('');
+
+            // loop through the str array
+            str.forEach(function(item) {
+               // a switch statement to handle each item type
+                switch(item) {
+                   case 'A':
+                       output.push([item, 'T']);
+                       break;
+                   case 'T':
+                       output.push([item, 'A']);
+                       break;
+                   case 'C':
+                       output.push([item, 'G']);
+                       break;
+                   case 'G':
+                       output.push([item, 'C']);
+                       break;
+               }
+            });
+            // return the output
+            return output;
+        }
+
+        var result = pairElement("GCG");
+        console.log(result); // returns [["G", "C"], ["C", "G"], ["G", "C"]]
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
