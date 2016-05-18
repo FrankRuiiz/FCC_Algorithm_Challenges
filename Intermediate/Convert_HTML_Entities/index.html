@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert HTML Entities</title>
+
+    <script>
+        // First/ longer solution
+        function convertHTML(str) {
+            // str converted into an array so we can check each character
+            str = str.split('');
+            str.forEach(function(char, index) {
+                // since we don't have alot of entities to convert, a switch statement can be used
+                switch(char) {
+                    case '&':
+                        str[index] = str[index].replace(/&/, '&amp;');
+                        break;
+                    case '<':
+                        str[index] = str[index].replace(/</, '&lt;');
+                        break;
+                    case '>':
+                        str[index] = str[index].replace(/>/, '&gt;');
+                        break;
+                    case '"':
+                        str[index] = str[index].replace(/"/, '&quot;');
+                        break;
+                    case '\'':
+                        str[index] = str[index].replace(/'/, '&apos;');
+                        break;
+                }
+            });
+            // put the string back together in the end
+            return str.join('');
+        }
+
+        var result = convertHTML("Dolce & Gabbana");
+        console.log(result); // returns "Dolce &amp; Gabbana"
+
+
+        // second / shorter method
+        function convertHTML2(str) {
+            // uses chaining to check the string for all test cases
+            return str.replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&apos;');
+        }
+
+        var result2 = convertHTML2("Dolce & Gabbana");
+        console.log(result2); //returns "Dolce &amp; Gabbana"
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
