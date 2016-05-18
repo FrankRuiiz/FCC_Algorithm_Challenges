@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorted Union</title>
+    <script>
+
+        function uniteUnique(arr) {
+            // the output array will hold our final result
+            var output = [];
+            // args takes the passed in arguments and creates an array, this way we can use all array methods
+            var args = Array.prototype.slice.call(arguments);
+
+            // flatten out the args array
+            var flatArgs = args.reduce(function(a, b){
+               return a.concat(b);
+            });
+
+            // finally we can go through the fattened args array via a forEach loop
+            flatArgs.forEach(function(item) {
+               // if the item is not in output, add it
+               if( output.indexOf(item) < 0 ) {
+                   output.push(item);
+               }
+            });
+
+            return output;
+        }
+
+        var result = uniteUnique([1, 3, 2], [1, [5]], [2, [4]]);
+        console.log(result);  //returns [1, 3, 2, [5], [4]]
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
