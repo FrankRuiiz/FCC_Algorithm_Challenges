@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spinal Tap Case</title>
+    <script>
+
+        function spinalCase(str) {
+            // the first replace any lower and uppercase pattern and adds a space before the uppercase char
+            // the second replace looks for an underscore or a space and replaces them with a dash
+            // last, the string is converted to lowercase
+            return str.replace(/([a-z])(A-Z)/g, '$1 $2').replace(/[_ ]/g, '-').toLowerCase();
+        }
+
+        var result = spinalCase('This Is Spinal Tap');
+        console.log(result); // returns this-is-spinal-tap
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
