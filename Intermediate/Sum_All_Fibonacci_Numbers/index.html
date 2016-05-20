@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum All Fibonacci Numbers</title>
+    <script>
+
+        // for loop solution
+        function sumOddFibs1(num) {
+            // declare variables
+            var sum = 0, prev = 0, cur = 1, fib = 1;
+
+            // for loop starting at index 2 (we have the first two in prev and cur)
+            // the loop will continue while fib is less than or equals to num
+            for ( var i=2; fib <= num; i++ ) {
+                // check and see if fib is an odd number
+                // starting off fib is already set to 1
+                if ( fib % 2 !== 0 ) {
+                    // if true, add fib to sum
+                    sum += fib;
+                }
+                // set the fibonacci number adding the previous number with the current number
+                fib = prev + cur;
+                // the previous variable is set to the current number value
+                prev = cur;
+                // the current number variable is set to the fibonacci number
+                cur = fib;
+            }
+            return sum;
+        }
+
+        var result = sumOddFibs1(75025);
+        console.log(result); // returns 135721
+
+
+        // while loop solution
+        function sumOddFibs2(num) {
+            var prev = 0, cur = 1,sum = 0;
+            // while the current number is less than or equals to num, do work
+            while ( cur <= num ) {
+                // if current number is odd
+                if ( cur % 2 !== 0 ) {
+                    // add current number to sum
+                    sum += cur;
+                }
+                // declare fibNum and set it to the sum of prev and cur numbers
+                var fibNum = prev + cur;
+                // the previous number becomes the current number
+                prev = cur;
+                // the current number becomes the fibNum
+                cur = fibNum;
+            }
+            return sum;
+        }
+
+        var result2 = sumOddFibs2(75025);
+        console.log(result2);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
