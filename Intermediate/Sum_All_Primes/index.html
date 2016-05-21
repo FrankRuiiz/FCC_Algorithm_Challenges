@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum All Primes</title>
+    <script>
+
+        // function for testing if a number is prime or not
+        function isPrime(testNum) {
+            // check if testNum is less than two, if it is return false
+            if(testNum < 2 ) {
+                return false;
+            }
+            // we only need to check factors less than or equals to square root
+            var q = Math.floor(Math.sqrt(testNum));
+            for( var i=2; i<=q; i+=1 ) {
+                // if test num is divisible by i, it is not prime
+                if ( testNum % i === 0 ) {
+                    return false;
+                }
+            }
+            // if the for loop finishes without returning false, then the number is prime
+            return true;
+        }
+
+
+        function sumPrimes(num) {
+            // the array that will hold all prim numbers up to num
+            var primeNums = [];
+
+            // goes through each number up to num and checks if it is prime
+            // we can start at 0 because our isPrime function checks for numbers less than 2
+            // this for loop also includes a check up to and including num
+            for( var i=0; i<=num; i+=1 ) {
+                // if the current number is prime
+                if(isPrime(i)) {
+                    // push i to the primeNums array
+                    primeNums.push(i);
+                }
+            }
+
+            // I used reduce to sum up the numbers in primeNums array and returned it
+            return primeNums.reduce(function(a, b) {
+               return a + b;
+            });
+        }
+
+        var result = sumPrimes(977);
+        console.log(result);  // returns 73156
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
