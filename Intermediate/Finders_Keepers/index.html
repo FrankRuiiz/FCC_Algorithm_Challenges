@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finders Keepers</title>
+    <script>
+
+        function findElement(arr, func) {
+            // used to get the element (if there is one), at index 0
+            var num = 0;
+            // since the callback function is passed in via the func param, all we need to do is pass  it into the filter method
+            var filteredArr = arr.filter(func);
+            // variable to hold the first element
+            var firstElem = filteredArr[num];
+            // check if the there is an element that passed the test
+            if(typeof firstElem === 'undefined') {
+                console.log('No elements passed the test');
+            }
+            else {
+                return firstElem;
+            }
+        }
+
+        var result = findElement([1, 2, 3, 4 ], function(num){ return num % 2 === 0; });
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
