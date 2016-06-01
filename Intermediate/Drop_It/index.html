@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drop It</title>
+
+    <script>
+
+        function dropElements(arr, func) {
+            // capture the length of the array so we know how many times to iterate in the for loop
+            // This is needed since the length will change when shift() is used
+            var length = arr.length;
+
+            for (var i=0; i<length; i++) {
+                // if the number passes the test stop and return the arr
+                if(func(arr[0]) === true) {
+                    break;
+                }
+                // otherwise remove the item from the array
+                else {
+                    arr.shift();
+                }
+            }
+            return arr;
+        }
+
+        var result = dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
