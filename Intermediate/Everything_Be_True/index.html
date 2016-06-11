@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Everything Be True</title>
+    <script>
+
+        function truthCheck(collection, pre) {
+            // loop through the collection array of objects
+            for(var i=0; i<collection.length; i+=1) {
+                // check if the object has a falsy value at key with value of pre
+                if(!collection[i][pre]) {
+                    return false;
+                }
+            }
+            // return true if everting in the check evaluates to truthy
+            return true;
+        }
+
+        var result = truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+        console.log(result);  // Returns: False
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
