@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arguments Optional</title>
+    <script>
+
+      function addTogether() {
+          // cache the length of arguments since its used a few times and shorter to type
+          var argLen = arguments.length;
+
+          // first loop through the arguments and check if they are not typeof number
+          for(var i=0; i<argLen-1; i+=1) {
+              if(typeof arguments[i] !== 'number') {
+                  //if they are not return undefined
+                  return undefined;
+              }
+          }
+
+          // if the argLen is 2, add the two numbers together
+          if(argLen === 2) {
+              return arguments[0] + arguments[1];
+          }
+
+          // if argLen is 1, return a function with the value, which can be used to invoke with a second number
+          if(argLen === 1) {
+              var arg1 = arguments[0];
+              return function(num) {
+                  // check if num is not type of number
+                  if(typeof num !== 'number') {
+                      return undefined;
+                  }
+                  else {
+                      return arg1 + num;
+                  }
+              };
+          }
+      }
+
+        var add2 = addTogether(2);
+        console.log(add2(3)); // returns 5
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
