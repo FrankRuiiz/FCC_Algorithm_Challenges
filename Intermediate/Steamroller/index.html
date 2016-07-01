@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steamroller</title>
+    <script>
+
+        function steamrollArray(arr) {
+            // stores the flattened array
+            var flattArr = [];
+            // loop through the arr parameter
+            for(var i=0; i<arr.length; i++) {
+                // if the current item in arr is itself an array
+                if(Array.isArray(arr[i])) {
+                    // use recursion to go as deep as needed to get each number
+                    flattArr = flattArr.concat(steamrollArray(arr[i]));
+                }
+                else {
+                    // when deep enough, or if not an array, push the item to the flatArr
+                    flattArr.push(arr[i]);
+                }
+            }
+            // return the final result
+            return flattArr;
+        }
+
+        var result = steamrollArray([1, {}, [3, [[4]]]]);
+        console.log(result);  // returns [1, {}, 3, 4]
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
